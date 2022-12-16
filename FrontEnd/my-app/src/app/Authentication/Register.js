@@ -39,11 +39,25 @@ const Register = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [gender, setGender] = useState("");
+  const [registerMSG, setRegisterMSG] = useState(false);
+
+  const registerSubmit = doRegisterAsync({
+    is_staff: 0,
+    email: email,
+    password: password,
+    username: username,
+    first_name: first_name,
+    last_name: last_name,
+    phone: phone,
+    address: address,
+    gender: gender,
+  });
+  //   setRegisterMSG(true);
 
   return (
     <div style={{ backgroundColor: "wheat" }}>
       <h1>register</h1>
-      <form>
+      <form id={"register"}>
         <div>
           First name: <input onChange={(e) => setFirst_name(e.target.value)} />
           <br></br> <br></br>
@@ -63,30 +77,39 @@ const Register = () => {
           /> <br></br> <br></br>
           gender: <input onChange={(e) => setGender(e.target.value)} />{" "}
           <br></br> <br></br>
-          Password: <input onChange={(e) => setPassword(e.target.value)} />{" "}
+          Password:{" "}
+          <input
+            type={"password"}
+            onChange={(e) => setPassword(e.target.value)}
+          />{" "}
           <br></br>
         </div>
       </form>
 
       <button
+        type={"submit"}
+        form={"register"}
+        value={"Submit"}
         onClick={() =>
           dispatch(
-            doRegisterAsync({
-              is_staff: 0,
-              email: email,
-              password: password,
-              username: username,
-              first_name: first_name,
-              last_name: last_name,
-              phone: phone,
-              address: address,
-              gender: gender,
-            })
+            registerSubmit()
+            // doRegisterAsync({
+            //   is_staff: 0,
+            //   email: email,
+            //   password: password,
+            //   username: username,
+            //   first_name: first_name,
+            //   last_name: last_name,
+            //   phone: phone,
+            //   address: address,
+            //   gender: gender,
+            // })
           )
         }
       >
         Register
       </button>
+      {registerMSG === true && <h2>Registered successfully!</h2>}
     </div>
   );
 };

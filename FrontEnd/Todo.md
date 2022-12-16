@@ -2,8 +2,8 @@
 
 Auth
 
-- Register
-- Login + Logout
+- Register -DONE
+- Login + Logout- DONE
 
 Admin
 

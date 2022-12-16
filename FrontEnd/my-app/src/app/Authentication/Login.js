@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Outlet, Link, NavLink } from "react-router-dom";
 
 import {
   logout,
@@ -49,9 +50,18 @@ const Login = () => {
       >
         Login
       </button>
+      <br></br> <br></br>
+      <br></br>
       {logged && <button onClick={() => dispatch(logout())}>logout</button>}
       {logged === true && <div>hello {loggedUsername}</div>}
       {/* {errorMsg ? <label>{errorMsg}</label> : null} */}
+      {logged === false && (
+        <button>
+          <Link className="nav-link" to={`/register`}>
+            Don't have an account yet? Create one!
+          </Link>
+        </button>
+      )}
     </div>
   );
 };

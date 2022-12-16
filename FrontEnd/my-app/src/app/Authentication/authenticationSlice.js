@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { login, register } from "./LoginAPI";
+import { login, register } from "./loginAPI";
 import jwt_decode from "jwt-decode";
 
 // State - data (init)
