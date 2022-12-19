@@ -63,7 +63,7 @@ export const categorySlice = createSlice({
 
       .addCase(getCategoryAsync.fulfilled, (state, action) => {
         state.status = "Done";
-        console.log(action.payload);
+        // console.log(action.payload);
         state.categoryList = action.payload;
       })
       .addCase(addCategoryAsync.fulfilled, (state, action) => {

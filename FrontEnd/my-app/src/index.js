@@ -8,9 +8,11 @@ import "./index.css";
 
 import Login from "./app/Authentication/Login";
 import Product from "./app/Products/Product";
+import SingleProd from "./app/Products/SingleProd";
 import Category from "./app/Category/Category";
 import StaffCAT from "./app/Category/StaffCAT";
 import Register from "./app/Authentication/Register";
+
 const container = document.getElementById("root");
 const root = createRoot(container);
 
@@ -25,9 +27,16 @@ root.render(
             <Route path="/register" element={<Register />}></Route>
             {/* <Route path="/about" element={<About />} />
             <Route path="/menu" element={<Menu />} /> */}
-            <Route path="/product" element={<Product />}></Route>
+            <Route path="/product" element={<Product />}>
+              <Route path=":prodID" element={<SingleProd />}></Route>
+            </Route>
             <Route path="/category" element={<Category />}>
-              <Route path=":id" element={<Product />}></Route>
+              <Route path=":catID" element={<Product />}>
+                <Route
+                  path="/category/:catID/product/:prodID"
+                  element={<SingleProd />}
+                ></Route>
+              </Route>
             </Route>
             <Route path="/staffGUI" element={<StaffCAT />}>
               <Route

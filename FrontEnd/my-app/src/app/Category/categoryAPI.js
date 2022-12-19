@@ -4,7 +4,6 @@ const GET_CATEGORY_URL = "http://127.0.0.1:8000/getcategory/";
 const ADD_CATEGORY_URL = "http://127.0.0.1:8000/addcategory/";
 const UPDATE_CATEGORY_URL = "http://127.0.0.1:8000/updatedcategory/";
 const DELETE_CATEGORY_URL = "http://127.0.0.1:8000/deletecategory/";
-// A mock function to mimic making an async request for data
 
 export function getCategory() {
   return new Promise((resolve) =>
